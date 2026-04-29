@@ -1,4 +1,3 @@
-
 import os
 import re
 from typing import Dict, Optional, Tuple
@@ -14,9 +13,9 @@ st.set_page_config(page_title="Campeonato de Afiliados Vorna", page_icon="🏆",
 SHEET_URL_DEFAULT = "https://docs.google.com/spreadsheets/d/1j_24WY5fInRTL6IgXvb9wd3LplWUqGWffxjKNamCjaI/edit?gid=2095829184#gid=2095829184"
 
 # Período de teste solicitado
-SEASON_START = pd.Timestamp("2025-11-01")
-SEASON_END_EXCLUSIVE = pd.Timestamp("2026-05-01")
-SEASON_MONTHS = ["2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04"]
+SEASON_START = pd.Timestamp("2026-05-01")
+SEASON_END_EXCLUSIVE = pd.Timestamp("2026-11-01")
+SEASON_MONTHS = ["2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]
 
 RULES = {
     "qualification_ftd": 40,
@@ -418,7 +417,7 @@ def main():
     """, unsafe_allow_html=True)
 
     st.title("🏆 Campeonato de Afiliados Vorna")
-    st.caption("Período de teste: Novembro de 2025 a Abril de 2026 | Dados puxados direto do Google Sheets")
+    st.caption("Período oficial: Maio de 2026 a Outubro de 2026 | Dados puxados direto do Google Sheets")
 
     with st.sidebar:
         st.header("Filtros")
@@ -636,7 +635,7 @@ def main():
 
     with st.expander("Resumo das regras aplicadas no cálculo"):
         st.markdown("""
-        - Temporada considerada neste teste: **01/11/2025 a 30/04/2026**.
+        - Temporada oficial considerada: **01/05/2026 a 31/10/2026**.
         - Depósitos: aba **In-out**, somente **Is Successful = VERDADEIRO**, **Transaction type = deposit**, somando **Transaction amount**.
         - Turnover: aba **Trades**, somando **Total Investment**, com Aff ID cruzado pela aba **Usuários**.
         - Qualificação cumulativa: **40 FTDs válidos + $35.000 em turnover**.
